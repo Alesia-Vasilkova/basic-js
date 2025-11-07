@@ -11,7 +11,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node --test --test-reporter tap"
+    "test": "node --test "
   },
   "repository": {
     "type": "git",

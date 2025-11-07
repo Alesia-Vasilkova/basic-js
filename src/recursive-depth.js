@@ -13,9 +13,22 @@ const { NotImplementedError } = require('../lib');
  *
  */
 class DepthCalculator {
-  calculateDepth(/* arr */) {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+  checkisArray(value, level = 0) {
+    if (Array.isArray(value)){
+      return value.reduce((acc, elem) => {
+        const newlevel = this.checkisArray(elem, level + 1);
+        if (newlevel > acc) {
+          return newlevel;
+        }
+        return acc;
+      }, level + 1);
+      
+    }
+    return level;
+  }
+
+  calculateDepth(arr) {
+    return this.checkisArray(arr);
   }
 }
 
